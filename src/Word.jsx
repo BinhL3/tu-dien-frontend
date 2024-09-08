@@ -1,6 +1,6 @@
-function Word({word}) {
-    return(
-        <div className="Word">
+function Word({ word }) {
+    return (
+        <div className="word">
             <h1>
                 {word.title}
             </h1>
@@ -8,12 +8,11 @@ function Word({word}) {
                 {word.definition}
             </h3>
             {word.example.map((example, i) => (
-                <i><p key={i}>{example}</p></i>
+                <i key={i}><p>{example}</p></i>
             ))}
             viết bởi {word.author} <b>{word.date}</b>
-
         </div>
-    )
+    );
 }
 
 export default Word;

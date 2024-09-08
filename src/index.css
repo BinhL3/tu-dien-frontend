@@ -1,22 +1,85 @@
-.flex-wrapper {
+body, .root {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; 
+}
+
+nav {
   display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  padding: 0px; /* Increased padding */
+  background-color: #323bf0;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 10px;
+  align-items: center;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #f0f0f0;
+  text-decoration: underline;
+}
+
+nav h1 {
+  font-size: 30px;
+  font-family: 'Arial';
+  margin: 0;
+  color: aliceblue;
+  margin-right: 10px;
+  text-shadow: 10px 20px 3 px;
+}
+
+nav input[type=text] {
+  float: right;
+  border: none;
+  margin-right: 10px;
+
+  border-radius: 4px;
+  font-size: 17px;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Arial';
 }
 
 a:hover {
-  color: #535bf2;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.Word h1 {
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: 'Arial';
 }
 
+.Word {
+  margin-bottom: 30px;
+}

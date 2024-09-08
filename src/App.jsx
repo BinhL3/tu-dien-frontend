@@ -12,13 +12,14 @@ function App() {
   };
 
   return (
-    <>
+    <div className="main-container">
       <Header/>
       <div className="flex-wrapper">
         <Word word={word}/>
+        <Word word={word}/>
         <Footer/>
       </div>
-    </>
+    </div>
   )
 }
 

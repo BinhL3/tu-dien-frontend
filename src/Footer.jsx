@@ -1,6 +1,6 @@
 function Footer() {
     return(
-        <div class="footer">
+        <div className="footer">
         <footer>
             <p>&copy; {new Date().getFullYear()} Tu Dien GenZ</p>
         </footer>
