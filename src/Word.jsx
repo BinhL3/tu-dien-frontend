@@ -10,7 +10,7 @@ function Word({ word }) {
             {word.example.map((example, i) => (
                 <i key={i}><p>{example}</p></i>
             ))}
-            viết bởi {word.author} <b>{word.date}</b>
+            <p className="credits">viết bởi {word.author} <b>{word.date}</b></p>
         </div>
     );
 }

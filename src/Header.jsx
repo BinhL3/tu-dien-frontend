@@ -1,15 +1,16 @@
 function Header() {
-    return(
-        <div className="header">
+    return (
+        <header className="header">
             <nav>
                 <ul>
-                    <h1>tự điền</h1>
-                    <li> <a href="#">home</a></li>
-                    <li><a href="#">random</a></li>
+                    <li><h1>tự điền</h1></li>
+                    <li><a href="#">trang chủ</a></li>
+                    <li><a href="#">ngẫu nhiên</a></li>
                 </ul>
             </nav>
             <input className="search-bar" type="text" placeholder="tra từ.."/>
-        </div>
+        </header>
     )
 }   
+
 export default Header;

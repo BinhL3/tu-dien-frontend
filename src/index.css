@@ -4,29 +4,30 @@ body, .root {
   background-color: #f0f0f0; 
 }
 
+.header {
+  background-color: #323bf0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  margin-bottom: 20px;
+  
+}
 nav {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   justify-content: center;
-  padding: 0px; /* Increased padding */
-  background-color: #323bf0;
+  padding: 0px;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 nav ul {
   display: flex;
-  list-style: none;
+  list-style-type: none;
   padding: 0;
-  margin: 0;
   align-items: center;
 }
 
 nav ul li {
-  margin-right: 10px;
-  align-items: center;
+  margin: 0 10px;
 }
 
 nav ul li:last-child {
@@ -40,10 +41,16 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #f0f0f0;
+  color: #ffd500;
   text-decoration: underline;
 }
 
+.footer {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 nav h1 {
   font-size: 30px;
   font-family: 'Arial';
@@ -74,12 +81,66 @@ a:hover {
   text-decoration: underline;
 }
 
-.Word h1 {
-  margin-top: 0px;
-  font-size: 20px;
-  font-family: 'Arial';
+.word h1 {
+  margin-top: 5px;
+  font-size: 40px;
+  margin-bottom: 5px;
 }
 
-.Word {
+.word h3 {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+.word {
+  color: white;
+  font-family: 'Arial';
   margin-bottom: 30px;
+  padding: 20px 30px;
+  border-radius: 10px; 
+  border: 1px solid #ccc; 
+  background-color: #323bf0;
+  box-shadow: 0 0 2px rgba(31, 31, 31, 0.5);
+  max-width: 600px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box; 
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    padding: 0 20px;
+    box-sizing: border-box; 
+}
+
+.search-bar {
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 25px; 
+  border: 1px solid #ccc; 
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: #323bf0;
+  box-shadow: 0 0 5px rgba(50, 59, 240, 0.5);
+}
+
+.word i p {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: -5px;
+  color:#e0e0e0;
+}
+
+.credits {
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
