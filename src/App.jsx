@@ -1,36 +1,60 @@
-import Word from "./Word"
-import Header from "./Header"
+import React, { useState, useEffect } from "react";
+import Word from "./Word";
+import Header from "./Header";
 import Footer from "./Footer";
+
 function App() {
+  const [words, setWords] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const word = {
-    title:"Ảo đét",
-    definition:"Ảo đét là từ nhấn mạnh sự bất ngờ.",
-    example:["Tiến: Hôm qua tao khoanh lụi hết mà cũng được 9.5.", "Quân: Đúng là ảo đét."],
-    author: "Binh Le",
-    date: "12/8/2024"
-  };
+  useEffect(() => {
+    const fetchWords = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/words"); // the get request to fetch all words
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        setWords(data);
+      } catch (error) {
+        console.error("Error fetching words:", error);
+        if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+          setError("Unable to connect to the server. Please check if the server is running.");
+        } else if (error.message === "Server didn't return JSON") {
+          setError("The server returned an unexpected response. Please check the API endpoint.");
+        } else {
+          setError(`Failed to fetch words: ${error.message}`);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const word2 = {
-    title:"Chỉn chu",
-    definition:"Chỉ một thứ được làm trọn vẹn, đạt mức hài lòng và thường bị nhầm thành với chỉnh chủ.",
-    example:["Thắng: làm bài nhóm cho chỉnh chu vào không t mách cô đấy.", "Quang: chỉn chu chứ...."],
-    author: "Binh Le",
-    date: "12/8/2024"
-  };
+    fetchWords();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className="main-container">
-      <Header/>
+      <Header />
       <div className="flex-wrapper">
-        <Word word={word}/>
-        <Word word={word2}/>
-        <Word word={word}/>
-
-        <Footer/>
+        {words.map((word, index) => (
+          <Word key={index} word={word} />
+        ))}
+        <Footer />
       </div>
     </div>
-  )
+  );
 }
 
 export default App;
