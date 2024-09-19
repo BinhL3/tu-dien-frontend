@@ -6,6 +6,7 @@ function Header() {
                     <li><h1>tự điền</h1></li>
                     <li><a href="#">trang chủ</a></li>
                     <li><a href="#">ngẫu nhiên</a></li>
+                    <li><a href="#">liên hệ</a></li>
                 </ul>
             </nav>
             <input className="search-bar" type="text" placeholder="tra từ.."/>
