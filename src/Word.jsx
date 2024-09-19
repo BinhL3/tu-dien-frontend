@@ -10,7 +10,7 @@ function Word({ word }) {
             {word.example.map((example, i) => (
                 <i key={i}><p>{example}</p></i>
             ))}
-            <p className="credits">viết bởi {word.author} <b>{word.date}</b></p>
+            <p className="credits">viết bởi {word.author} <b>{new Date(word.date).toISOString().split('T')[0]}</b></p>
         </div>
     );
 }

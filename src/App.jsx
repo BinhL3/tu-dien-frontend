@@ -21,13 +21,6 @@ function App() {
         setWords(data);
       } catch (error) {
         console.error("Error fetching words:", error);
-        if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
-          setError("Unable to connect to the server. Please check if the server is running.");
-        } else if (error.message === "Server didn't return JSON") {
-          setError("The server returned an unexpected response. Please check the API endpoint.");
-        } else {
-          setError(`Failed to fetch words: ${error.message}`);
-        }
       } finally {
         setLoading(false);
       }
