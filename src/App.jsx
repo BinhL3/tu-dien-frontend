@@ -6,7 +6,6 @@ import Footer from "./Footer";
 function App() {
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -28,14 +27,6 @@ function App() {
 
     fetchWords();
   }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
 
   return (
     <div className="main-container">
