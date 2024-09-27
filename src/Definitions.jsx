@@ -2,16 +2,25 @@ import React, { useState, useEffect } from "react";
 import Word from "./Word";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Definitions = () => {
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const getQueryParam = (param) => {
+    return new URLSearchParams(location.search).get(param);
+  };
+
+  const title = getQueryParam("title");
   useEffect(() => {
     const fetchWords = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/words"); // the get request to fetch all words
+        const response = await fetch(
+          `http://localhost:8000/api/words/title/${encodeURIComponent(title)}`
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,10 +37,6 @@ const Definitions = () => {
 
     fetchWords();
   }, []);
-
-  const handleTitleClick = (title) => {
-    navigate("/define?${encodeURIComponent(title)}");
-  };
 
   return (
     <div className="main-container">

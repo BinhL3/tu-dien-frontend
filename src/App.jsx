@@ -9,9 +9,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/define/:term" element={<Definitions />} />
+          <Route path="/define" element={<Definitions />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );
