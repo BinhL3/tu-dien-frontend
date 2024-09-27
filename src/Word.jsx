@@ -1,8 +1,8 @@
-function Word({ word, onTitleClick }) {
+function Word({ word, handleTitleClick }) {
   return (
     <div className="word">
       <h1
-        onClick={() => onTitleClick(word.title)}
+        onClick={() => handleTitleClick(word.title)}
         style={{ cursor: "pointer" }}
       >
         {word.title}

@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Word from "./Word";
-import Header from "./Header";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from "./Home";
 import Footer from "./Footer";
-import WordList from "./WordList";
+import Definitions from "./Definitions";
 function App() {
   return (
     <div className="main-container">
-      <WordList></WordList>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/define/:term" element={<Definitions />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

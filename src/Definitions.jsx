@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Word from "./Word";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
-const WordList = () => {
+const Definitions = () => {
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchWords = async () => {
       try {
@@ -28,6 +29,10 @@ const WordList = () => {
     fetchWords();
   }, []);
 
+  const handleTitleClick = (title) => {
+    navigate("/define?${encodeURIComponent(title)}");
+  };
+
   return (
     <div className="main-container">
       <Header />
@@ -41,4 +46,4 @@ const WordList = () => {
   );
 };
 
-export default WordList;
+export default Definitions;
