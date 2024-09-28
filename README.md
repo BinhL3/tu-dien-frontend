@@ -1,12 +1,16 @@
-Front End For Tu Dien
+# Vietnamese Urban Dictionary - Tự Điền
 
-# React + Vite
+A full-stack application providing up-to-date, accurate definitions and context of Vietnamese slang, to reconnect and strengthen cultural ties
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Screenshot](./assets/homepage.png)
 
-Currently, two official plugins are available:
+Built using React for the frontend, Express.js for the backend, and PostgreSQL for the database. This project allows users to search, view, and navigate through various Vietnamese slang words along with their definitions and examples.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+W.I.P: Leveraging web-scraping and machine learning methods to automate word retrieval of various social media platforms
 
-# tudien
+## Tech Stack
+
+- **Frontend**: React.js, React Router, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: PostgreSQL
+- **Other**: Sequelize ORM
