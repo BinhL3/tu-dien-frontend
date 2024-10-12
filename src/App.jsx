@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/define" element={<Definitions />} />
+          <Route path="/random" element={<Definitions />} />
         </Routes>
       </BrowserRouter>
     </div>

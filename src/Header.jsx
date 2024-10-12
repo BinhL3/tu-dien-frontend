@@ -1,5 +1,22 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 function Header() {
+  const navigate = useNavigate();
+
+  const fetchRandom = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/random");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      navigate(`/define?title=${encodeURIComponent(data.title)}`);
+    } catch (error) {
+      console.error("Error getting the random word: ", error);
+    }
+  };
+
   return (
     <header className="header">
       <nav>
@@ -13,7 +30,16 @@ function Header() {
             <Link to="/">trang chủ</Link>
           </li>
           <li>
-            <Link to="/random">ngẫu nhiên</Link>
+            {/* Link that triggers the fetchRandom function when clicked */}
+            <Link
+              to="#"
+              onClick={(e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                fetchRandom();
+              }}
+            >
+              ngẫu nhiên
+            </Link>
           </li>
           <li>
             <Link to="/about">giới thiệu</Link>

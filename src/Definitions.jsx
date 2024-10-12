@@ -6,7 +6,6 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Definitions = () => {
   const [words, setWords] = useState([]);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,8 +29,6 @@ const Definitions = () => {
         setWords(data);
       } catch (error) {
         console.error("Error fetching words:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
