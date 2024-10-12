@@ -49,13 +49,21 @@ function Header() {
         <Link to="/add" className="add-word-link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+            viewBox="0 0 48 48"
             fill="currentColor"
             className="add-icon"
           >
+            <circle
+              cx="24"
+              cy="24"
+              r="22"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
             <path
               fillRule="evenodd"
-              d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
+              d="M24 13a1.5 1.5 0 011.5 1.5v8.5h8.5a1.5 1.5 0 010 3h-8.5v8.5a1.5 1.5 0 01-3 0v-8.5h-8.5a1.5 1.5 0 010-3h8.5v-8.5A1.5 1.5 0 0124 13z"
               clipRule="evenodd"
             />
           </svg>

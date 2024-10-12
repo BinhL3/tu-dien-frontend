@@ -32,6 +32,7 @@ nav {
 .add-word-link {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .add-icon {
