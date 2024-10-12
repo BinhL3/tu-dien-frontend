@@ -20,6 +20,26 @@ nav {
   box-sizing: border-box;
 }
 
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  margin-right: 10px;
+}
+
+.add-word-link {
+  display: flex;
+  align-items: center;
+}
+
+.add-icon {
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+}
+
 nav ul {
   display: flex;
   list-style-type: none;
