@@ -27,9 +27,6 @@ function Header() {
             </h1>
           </li>
           <li>
-            <Link to="/">trang chủ</Link>
-          </li>
-          <li>
             <Link
               to="#"
               onClick={(e) => {

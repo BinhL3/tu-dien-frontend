@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Footer";
 import Definitions from "./Definitions";
+import About from "./About";
 function App() {
   return (
     <div className="main-container">
@@ -11,8 +12,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/define" element={<Definitions />} />
           <Route path="/random" element={<Definitions />} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/add" element={<Add />} /> */}
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/add" element={<Add />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
