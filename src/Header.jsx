@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchRandom = async () => {
     try {
@@ -14,6 +15,40 @@ function Header() {
       navigate(`/define?title=${encodeURIComponent(data.title)}`);
     } catch (error) {
       console.error("Error getting the random word: ", error);
+    }
+  };
+
+  const search = async () => {
+    try {
+      const encodedSearchTerm = encodeURIComponent(searchTerm);
+      const response = await fetch(
+        `http://localhost:8000/api/words/title/${encodedSearchTerm}`
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Search result:", data);
+      const timestamp = new Date().getTime();
+      if (data[0].title) {
+        navigate(`/define?title=${encodeURIComponent(data[0].title)}`);
+      } else {
+        console.error("No title found in the search result");
+      }
+    } catch (error) {
+      console.error("Error fetching words:", error);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (searchTerm.trim() !== "") {
+        search();
+      } else {
+        console.warn("Search term is empty.");
+      }
     }
   };
 
@@ -42,7 +77,14 @@ function Header() {
         </ul>
       </nav>
       <nav className="right-nav">
-        <input className="search-bar" type="text" placeholder="tra từ.." />
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Tra từ"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
         <Link to="/add" className="add-word-link">
           <svg
             xmlns="http://www.w3.org/2000/svg"

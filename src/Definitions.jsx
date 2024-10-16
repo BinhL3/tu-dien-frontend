@@ -33,14 +33,17 @@ const Definitions = () => {
     };
 
     fetchWords();
-  }, []);
+  }, [title]);
 
+  const handleTitleClick = (title) => {
+    navigate(`/define?title=${encodeURIComponent(title)}`);
+  };
   return (
     <div className="main-container">
       <Header />
       <div className="flex-wrapper">
         {words.map((word, index) => (
-          <Word key={index} word={word} />
+          <Word key={index} word={word} handleTitleClick={handleTitleClick} />
         ))}
         <Footer />
       </div>
