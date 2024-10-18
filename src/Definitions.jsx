@@ -6,45 +6,60 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Definitions = () => {
   const [words, setWords] = useState([]);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
+  const title = new URLSearchParams(location.search).get("title");
+  const notFound = location.state?.notFound || false;
 
-  const getQueryParam = (param) => {
-    return new URLSearchParams(location.search).get(param);
-  };
-
-  const title = getQueryParam("title");
   useEffect(() => {
     const fetchWords = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/words/title/${encodeURIComponent(title)}`
-        );
+        if (!notFound) {
+          const response = await fetch(
+            `http://localhost:8000/api/words/title/${encodeURIComponent(title)}`
+          );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          setWords(data);
         }
-
-        const data = await response.json();
-        setWords(data);
       } catch (error) {
         console.error("Error fetching words:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchWords();
-  }, [title]);
+  }, [title, notFound]);
 
-  const handleTitleClick = (title) => {
-    navigate(`/define?title=${encodeURIComponent(title)}`);
-  };
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="main-container">
       <Header />
       <div className="flex-wrapper">
-        {words.map((word, index) => (
-          <Word key={index} word={word} handleTitleClick={handleTitleClick} />
-        ))}
+        {notFound ? (
+          <div className="word-not-found">
+            <h1>:(</h1>
+            <p>mình chưa định nghĩa từ "{title}"</p>
+            <p>bạn thêm vào giúp mình nhé!</p>
+            <button
+              className="define-button"
+              onClick={() => navigate("/add", { state: { title } })}
+            >
+              thêm nghĩa
+            </button>
+          </div>
+        ) : (
+          words.map((word, index) => <Word key={index} word={word} />)
+        )}
         <Footer />
       </div>
     </div>

@@ -175,3 +175,48 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 0px;
 }
+
+.word-not-found {
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 40px;
+  padding: 30px 40px;
+  border-radius: 15px; 
+  border: 2px solid #00a6ff; 
+  background: linear-gradient(to bottom right, #323bf0, #00a6ff);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.word-not-found h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.word-not-found p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.define-button {
+  background-color: #00a6ff;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.define-button:hover {
+  background-color: #0052cc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

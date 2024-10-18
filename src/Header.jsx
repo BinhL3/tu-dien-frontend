@@ -26,14 +26,21 @@ function Header() {
       );
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (response.status === 404) {
+          navigate(`/define?title=${encodedSearchTerm}`, {
+            state: { notFound: true },
+          });
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return;
       }
 
       const data = await response.json();
-      console.log("Search result:", data);
-      const timestamp = new Date().getTime();
       if (data[0].title) {
-        navigate(`/define?title=${encodeURIComponent(data[0].title)}`);
+        navigate(`/define?title=${encodedSearchTerm}`, {
+          state: { notFound: false },
+        });
       } else {
         console.error("No title found in the search result");
       }
