@@ -1,9 +1,11 @@
+import "./index.css";
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Footer";
 import Definitions from "./Definitions";
 import About from "./About";
+import Add from "./Add";
 function App() {
   return (
     <div className="main-container">
@@ -13,7 +15,7 @@ function App() {
           <Route path="/define" element={<Definitions />} />
           <Route path="/random" element={<Definitions />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/add" element={<Add />} /> */}
+          <Route path="/add" element={<Add />} />
         </Routes>
       </BrowserRouter>
     </div>
