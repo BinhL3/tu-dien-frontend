@@ -47,7 +47,7 @@ const Definitions = () => {
       <div className="flex-wrapper">
         {notFound ? (
           <div className="word-not-found">
-            <h1>:(</h1>
+            <h1>:</h1>
             <p>mình chưa định nghĩa từ "{title}"</p>
             <p>bạn thêm vào giúp mình nhé!</p>
             <button

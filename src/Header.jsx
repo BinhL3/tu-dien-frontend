@@ -37,12 +37,12 @@ function Header() {
       }
 
       const data = await response.json();
-      if (data[0].title) {
-        navigate(`/define?title=${encodedSearchTerm}`, {
-          state: { notFound: false },
-        });
+      if (data.length > 0) {
+        navigate(`/define?title=${encodedSearchTerm}`);
       } else {
-        console.error("No title found in the search result");
+        navigate(`/define?title=${encodedSearchTerm}`, {
+          state: { notFound: true },
+        });
       }
     } catch (error) {
       console.error("Error fetching words:", error);
