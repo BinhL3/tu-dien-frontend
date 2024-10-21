@@ -28,7 +28,7 @@ const Home = () => {
     };
 
     fetchWords();
-  });
+  }, []); // dependency array :)
 
   const handleTitleClick = (title) => {
     navigate(`/define?title=${encodeURIComponent(title)}`);

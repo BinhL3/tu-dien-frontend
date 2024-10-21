@@ -10,6 +10,7 @@ const Add = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(e);
     setMessage("Đã thêm từ thành công!");
     setTitle("");
     setDefinition("");

@@ -33,8 +33,9 @@ const Definitions = () => {
         setLoading(false);
       }
     };
-
+    if (title) {
     fetchWords();
+    }
   }, [title, notFound]);
 
   if (loading) {
