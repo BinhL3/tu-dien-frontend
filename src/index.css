@@ -277,3 +277,16 @@ a:hover {
   margin-top: 15px;
   color: #ffd500;
 }
+/* 
+
+html {
+  overflow-y: scroll;
+  margin-left: calc(100vw - 100%);
+} */
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+
