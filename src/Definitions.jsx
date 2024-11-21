@@ -34,7 +34,7 @@ const Definitions = () => {
       }
     };
     if (title) {
-    fetchWords();
+      fetchWords();
     }
   }, [title, notFound]);
 
