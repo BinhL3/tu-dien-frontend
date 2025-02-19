@@ -47,10 +47,24 @@ const Definitions = () => {
       <Header />
       <div className="flex-wrapper">
         {notFound ? (
-          <div className="word-not-found">
-            <h1>:</h1>
-            <p>mình chưa định nghĩa từ "{title}"</p>
-            <p>bạn thêm vào giúp mình nhé!</p>
+          <div className="word">
+            <h1
+              onClick={() => handleTitleClick(title)}
+              style={{ cursor: "pointer" }}
+            >
+              {title}
+            </h1>
+
+            <p>
+              mình chưa chính thức định nghĩa từ "{title}", đây là nghĩa tự động
+              được AI tìm kiếm!
+            </p>
+            <button
+              className="define-button"
+              onClick={() => navigate("/add", { state: { title } })}
+            >
+              downvote
+            </button>
             <button
               className="define-button"
               onClick={() => navigate("/add", { state: { title } })}

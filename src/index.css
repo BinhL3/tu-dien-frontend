@@ -190,18 +190,22 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .word-not-found h1 {
-  font-size: 60px;
+  margin-top: 5px;
+  font-size: 36px;
+  font-weight: 600;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .word-not-found p {
+  font-weight: 400;
+  margin-bottom: 15px;
   font-size: 18px;
-  margin: 10px 0;
+  color: #ffffff;
 }
 
 .define-button {
