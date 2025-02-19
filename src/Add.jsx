@@ -11,7 +11,7 @@ const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(e);
-    setMessage("Đã thêm từ thành công!");
+    setMessage("Đã thêm từ thành công hihi!");
     setTitle("");
     setDefinition("");
     setExample("");
